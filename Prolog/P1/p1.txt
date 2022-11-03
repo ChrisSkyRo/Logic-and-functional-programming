@@ -1,0 +1,21 @@
+remove_duplicates(L1...Ln)              =       { ∅ if n = 0
+                                                { remove_duplicates(L2...Ln) if n > 0, appears(L2...Ln, L1)
+                                                { L1 ∪ remove_duplicates(L2...Ln) otherwise
+
+appears(L1...Ln, X)                     =       { false if n = 0
+                                                { true if L1 = X
+                                                { appears(L2...Ln, X) otherwise
+
+remove_max(L1...Ln)                     =       { ∅ if n = 0
+                                                { remove_elem(L1...Ln, max_list(L1...Ln)) otherwise
+
+max_list(L1...Ln)                       =       { -2000000 if n = 0
+                                                { max(L1, max_list(L2...Ln)) otherwise
+                                                
+max(A, B)                               =       { A if A >= B
+                                                { B otherwise
+
+remove_elem(L1...Ln, M)                 =       { ∅ if n = 0
+                                                { L1 ∪ remove_elem(L2...Ln, M) if L1 != M
+                                                { remove_elem(L2...Ln, M) otherwise
+
