@@ -1,0 +1,16 @@
+prime(X)                        =   { true if n = 2 or n = 3
+                                    { false if n is even
+                                    { prime_(X, 3) if x > 3
+                                    { false otherwise
+
+prime_(X, N)                    =   { true if N*N > X
+                                    { false if X mod N = 0
+                                    { prime_(X, N+2) otherwise
+
+double_primes(L1...Ln)          =   { ∅ if n = 0
+                                    { L1 ∪ L1 ∪ double_primes(L2...Ln) if prime(L1)
+                                    { L1 ∪ double_primes(L2...Ln) otherwise
+
+double_primes_sublist(L1...Ln)  =   { ∅ if n = 0
+                                    { double_primes(L1) ∪ double_primes_sublist(L2...Ln) if L1 is a list
+                                    { L1 ∪ double_primes_sublist(L2...Ln) otherwise
