@@ -1,0 +1,10 @@
+verifyX(L1...Ln, C)                         =   { false if n = 0 and C < 0
+                                                { verifyX(L2...Ln, C-1) if L1 = 'X'
+                                                { verifyX(L2...Ln, C) if L1 != 'X'
+                                                { true otherwise
+
+pronosport(K, I)                            =   { ∅ if K = 5
+                                                { 1 ∪ pronosport(K+1, _) if I = 1
+                                                { 'X' ∪ pronosport(K+1, _) if I = 2
+                                                { 2 ∪ pronosport(K+1, _) if I = 3 and K != 4
+                                                { pronosport(1, _) ∩ verifyX(pronosport(1, _), 2) if K = 0

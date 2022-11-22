@@ -1,0 +1,20 @@
+prime(X)                        =   { true if X = 2 or X = 3
+                                    { false if X is even
+                                    { prime_(X, 3) if x > 3
+                                    { false otherwise
+
+prime_(X, N)                    =   { true if N*N > X
+                                    { false if X mod N = 0
+                                    { prime_(X, N+2) otherwise
+
+get_divisors(N, D)              =   { ∅ if D > N
+                                    { D ∪ get_divisors(N, D) if D <= N and N mod D = 0
+                                    { get_divisors(N, D) otherwise
+
+add_divisors(L1...Ln)           =   { ∅ if n = 0
+                                    { L1 ∪ add_divisors(L2...Ln) if prime(L1)
+                                    { get_divisors(L1, 1) ∪ add_divisors(L2...Ln) otherwise
+
+concatenate(LA1...LAn, LB1...LBm)=  { ∅ if n = 0 and m = 0
+                                    { LB1 ∪ concatenate(LA1...LAn, LB2...LBm) if n = 0 and m > 0
+                                    { LA1 ∪ concatenate(LA2...LAn, LB1...LBm) otherwise
