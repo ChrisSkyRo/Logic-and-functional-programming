@@ -1,0 +1,25 @@
+countAppearances(el, L1...Ln)           =   { 0 if n = 0
+                                            { 1 + countAppearances(el, L2...Ln) if n > 0 and L1 = el
+                                            { countAppearances(el, L2...Ln) otherwise
+
+setDifference(LA1...LAn, LB1...LBm)     =   { ∅ if n = 0
+                                            { LA1 ∪ setDifference(LA2...LAn, LB1...LBm) if countAppearances(LA1, LB1...LBm) = 0
+                                            { setDifference(LA2...LAn, LB1...LBm) otherwise
+
+reverseList(L1...Ln)                    =   { ∅ if n = 0
+                                            { reverseList(L2...Ln) ∪ reverseList(L1) if L1 is list
+                                            { reverseList(L2...Ln) ∪ (L1) otherwise
+
+getFirstElemIfOddLength(L1...Ln)        =   { L1 if n is odd
+                                            { ∅ otherwise
+
+buildFirstElemList(L1...Ln)             =   { ∅ if n = 0
+                                            { getFirstElemIfOddLength(L1) ∪ buildFirstElemList(L2...Ln) if L1 is list
+                                            { buildFirstElemList(L2...Ln) otherwise
+
+startBuildFirstElemList(L1...Ln)        =   { ∅ if n = 0
+                                            { getFirstElemIfOddLength(L1...Ln) ∪ buildFirstElemList(L1...Ln) otherwise
+
+numericSum(L1...Ln)                     =   { 0 if n = 0
+                                            { L1 + numericSum(L2...Ln) if atom(L1) and numericp(L1)
+                                            { numericSum(L2...Ln) otherwise
