@@ -7,7 +7,7 @@
 % K - the step of the backtracking
 % I - the value being used
 % RL - the list that results
-% flux model (i, o, o) nedeterminist
+% flux model (i, o, o) nondeterministic
 
 pronosport(0, _, RL) :-
     !,
