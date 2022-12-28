@@ -1,0 +1,29 @@
+getLTree(L1...Ln, nodes, edges)     =   { ∅ if n = 0
+                                        { ∅ if nodes = edges + 1
+                                        { L1 ∪ L2 ∪ getTree(L3...Ln, nodes+1, edges+L2) otherwise
+
+getRTree(L1...Ln, nodes, edges)     =   { ∅ if n = 0
+                                        { L1...Ln if nodes = edges + 1
+                                        { getTree(L3...Ln, nodes+1, edges+L2) otherwise
+
+leftTree(L1...Ln)                   =   getTree(L3...Ln, 0, 0)
+
+rightTree(L1...Ln)                  =   getTree(L5...Ln, 0, 0)
+
+getDepth(L1...Ln, node)             =   { -100000 if n = 0
+                                        { 0 if L1 = node
+                                        { 1 + max((depth(leftTree(L1...Ln), node)), depth(rightTree(L1...Ln)) otherwise
+
+
+depth(L1...Ln, node)                =   { false if getDepth(L1...Ln, node) < 0
+                                        { getDepth(L1...Ln, node)
+
+(a 2 b 2 c 1 i 0 f 1 g 0 d 2 e 0 h 0)
+
+     a          0
+    / \         
+   b   d        1
+  / \  / \      
+  c f  e  h     2
+ / /            
+i g             3
