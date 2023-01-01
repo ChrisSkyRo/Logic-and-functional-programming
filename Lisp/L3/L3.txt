@@ -1,0 +1,7 @@
+removeAtom(l, at)       =   { ∅ if n = 0
+                            { ∅ if l is atom and l = at
+                            { l if l is atom and l != at
+                            { removeAtom(l1, at) ∪ ... ∪ removeAtom(ln, at) if l is list
+
+(removeAtom (list 1 (list 2 1 2 3 1) 2 3 (list 1 2 (list 8 8 2 7) 3 2 2 4) 5) 2)
+ --> (1 (1 3 1) 3 (1 (8 8 7) 3 4) 5)
