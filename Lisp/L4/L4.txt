@@ -1,0 +1,9 @@
+existsNode(L1...Ln, x)  =   { ∅ if n = 0
+                            { 1 if L1 = x
+                            { existsNode(L2, x) + existsNode(L3, x) otherwise
+
+pathToNode(L1...Ln, x)  =   { ∅ if n = 0
+                            { L1 if L1 = x
+                            { L1 ∪ pathToNode(L2) if existsNode(L2, x)
+                            { L1 ∪ pathToNode(L3) if existsNode(L3, x)
+                            { False otherwise
